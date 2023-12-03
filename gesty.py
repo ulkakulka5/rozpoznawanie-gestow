@@ -33,7 +33,7 @@ while kamera.isOpened():
     if not sukces:
         break
 
-    wysokosc_obrazu, szerokosc_obrazu, _ = obraz.shape  # Pobranie rozmiarów ramki
+    wysokosc_obrazu, szerokosc_obrazu, _ = obraz.shape  # pobranie rozmiarów ramki
 
     # konwersja kolorów z BGR do RGB
     rgb_obraz = cv2.cvtColor(obraz, cv2.COLOR_BGR2RGB)
@@ -54,12 +54,12 @@ while kamera.isOpened():
             gesture = rozpoznaj_gest(hand_landmarks.landmark)
             cv2.putText(obraz, gesture, (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (200, 100, 200), 2, cv2.LINE_AA)
 
-    # Wyświetlenie obrazu z kamery
+    # wyświetlenie obrazu z kamery
     cv2.imshow("Rozpoznawanie Gestów Ręką", obraz)
 
-    if cv2.waitKey(1) & 0xFF == 27:  # Naciśnij 'Esc' aby wyjść z programu
-        break  # Ta linia musi być wewnątrz pętli
+    if cv2.waitKey(1) & 0xFF == 27:  #  'esc' aby wyjść z programu
+        break  # wewnątrz pętli!!
 
-# Zwolnienie zasobów
+# zamkniecie
 kamera.release()
 cv2.destroyAllWindows()
